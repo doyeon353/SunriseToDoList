@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>ToDoList</title>
+  </head>
+  <body>
+    <section>
+      <article class="todolist">
+        <div class="sunrise">
+          <span>Morning</span>
+          <div class="sunriseImg">
+            <img src="img/sunrise.png" alt="#" id="sunriseImg" />
+          </div>
+        </div>
+        <!--아침 할일 목록-->
+        <ul class="todolist_morningToDo">
+          <li>asdfassssssssssssssssss</li>
+        </ul>
+
+        <!--아침 할일 input-->
+        <form class="inputContainer">
+          <input type="text" id="morningToDo" />
+          <a class="checkBtn" id="morningBtn">
+            <i class="far fa-check-circle fa-lg"></i>
+          </a>
+        </form>
+      </article>
+
+      <article class="todolist">
+        <div class="sunset">
+          <span>Afternoon</span>
+          <div class="sunsetImg">
+            <img src="img/sunset.png" alt="#" id="sunriseImg" />
+          </div>
+        </div>
+        <!--점심 할일 목록-->
+        <ul class="todolist_afternoonToDo"></ul>
+
+        <!--점심 할일 input-->
+        <form class="inputContainer">
+          <input type="text" id="afternoonToDo" />
+          <a class="checkBtn" id="afternoonBtn">
+            <i class="far fa-check-circle fa-lg"></i>
+          </a>
+        </form>
+      </article>
+    </section>
+  </body>
+</html>
