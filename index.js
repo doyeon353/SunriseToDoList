@@ -7,12 +7,27 @@ const sunriseImg = document.querySelector('#sunriseImg');
 
 const mornArray = [];
 const morningText = 'MORNINGLIST';
+
+
+
+
 function SaveMorning(text) {
     localStorage.setItem(morningText, JSON.stringify(mornArray));
 }
 
+function loadMorning(){
+    const loadedMorning = localStorage.getItem(morningText);
+    if(loadedMorning !== null){
+        const parsedMorning = JSON.parse(loadedMorning);
+        parsedMorning.forEach(function(toDo){
+            paintMorning(toDo.text);
+        });
+    }
+}
+
 
 function paintMorning(text) {
+    
     const morningLi = document.createElement('li');
     const mornBtns = document.createElement('div');
     const morningSpan = document.createElement('span');
@@ -55,6 +70,7 @@ function MorningHandleSubmit(event) {
 
 
 function Init() {
-    morningForm.addEventListener('submit', MorningHandleSubmit)
+    morningForm.addEventListener('submit', MorningHandleSubmit);
+    loadMorning();
 }
 Init();
