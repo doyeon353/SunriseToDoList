@@ -5,21 +5,30 @@ const morningForm = document.querySelector('#morningForm');
 const morningToDo = document.querySelector('.todolist_morningToDo');
 const sunriseImg = document.querySelector('#sunriseImg');
 
-const mornArray = [];
+let mornArray = [];
 const morningText = 'MORNINGLIST';
 
 
-
+function deleteToDo(event) {
+    const btn = event.target;
+    const list = btn.parentNode.parentNode;
+    morningToDo.removeChild(list);
+    const cleanMorning = mornArray.filter(function (toDo) {
+        return toDo.id !== parseInt(list.id);
+    });
+    mornArray = cleanMorning;
+    SaveMorning();
+}
 
 function SaveMorning(text) {
     localStorage.setItem(morningText, JSON.stringify(mornArray));
 }
 
-function loadMorning(){
+function loadMorning() {
     const loadedMorning = localStorage.getItem(morningText);
-    if(loadedMorning !== null){
+    if (loadedMorning !== null) {
         const parsedMorning = JSON.parse(loadedMorning);
-        parsedMorning.forEach(function(toDo){
+        parsedMorning.forEach(function (toDo) {
             paintMorning(toDo.text);
         });
     }
@@ -27,7 +36,7 @@ function loadMorning(){
 
 
 function paintMorning(text) {
-    
+
     const morningLi = document.createElement('li');
     const mornBtns = document.createElement('div');
     const morningSpan = document.createElement('span');
@@ -43,11 +52,13 @@ function paintMorning(text) {
     delBtn.classList.add('show');
     morningLi.appendChild(morningSpan);
     mornBtns.appendChild(delBtn);
+    delBtn.addEventListener('click', deleteToDo);
     mornBtns.appendChild(finishBtn);
     mornBtns.appendChild(moveToAfternoon);
     morningLi.appendChild(mornBtns);
     morningLi.id = newId;
     morningToDo.appendChild(morningLi);
+
 
     const mornObj = {
         text: text,
