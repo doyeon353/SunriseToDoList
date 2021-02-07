@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script defer src="morning-todolist.js"></script>
+  <script defer src="js/morning-todolist.js"></script>
+  <script defer src="js/afternoon.js"></script>
   <link rel="stylesheet" href="style.css" />
   <title>ToDoList</title>
 </head>
@@ -34,14 +35,15 @@
       <div class="sunset">
         <span>Afternoon</span>
         <div class="sunsetImg">
-          <img src="img/sunset.png" alt="#" id="sunriseImg" />
+          <img src="img/sunset.png" alt="#" id="sunsetImg" />
         </div>
       </div>
       <!--점심 할일 목록-->
-      <ul class="todolist_afternoonToDo"></ul>
+      <ul class="todolist_afternoonToDo">
 
+      </ul>
       <!--점심 할일 input-->
-      <form class="inputContainer">
+      <form class="inputContainer" id="afternoonForm">
         <input type="text" id="afternoonToDo" />
 
       </form>

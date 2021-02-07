@@ -77,6 +77,7 @@ input {
   cursor: pointer;
 }
 
-.show{
- color: ;
+.checkToDo{
+  text-decoration: line-through;
+  /*이건 나중에 animation을 줘서 서서히 줄이 쳐지는 걸로 만들고 싶음*/
 }
