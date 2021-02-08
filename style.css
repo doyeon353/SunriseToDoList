@@ -81,3 +81,13 @@ input {
   text-decoration: line-through;
   /*이건 나중에 animation을 줘서 서서히 줄이 쳐지는 걸로 만들고 싶음*/
 }
+
+.clearBtn{
+ display: flex;
+ align-items: flex-end;
+ margin-bottom: 2.5rem;
+ color: #FF6633;
+}
+.clearBtn:hover{
+cursor: pointer;
+}

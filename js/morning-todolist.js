@@ -3,9 +3,20 @@ const morningForm = document.querySelector('#morningForm');
 //ul
 const morningToDo = document.querySelector('.todolist_morningToDo');
 const sunriseImg = document.querySelector('#sunriseImg');
+const clear = document.querySelector('#clearBtn_js');
 
 let mornArray = [];
 const morningText = 'MORNINGLIST';
+
+function clearToDo() {
+    localStorage.clear();
+    while (morningToDo.hasChildNodes()) {
+        morningToDo.removeChild(morningToDo.firstChild);
+    }
+    while (afternoonToDo.hasChildNodes()) {
+        afternoonToDo.removeChild(afternoonToDo.firstChild);
+    }
+}
 
 function moveToAfter(event) {
     if (afterArray.length < 7) {
@@ -106,6 +117,7 @@ function MorningHandleSubmit(event) {
 function Init() {
     morningForm.addEventListener('submit', MorningHandleSubmit);
     loadMorning();
+    clear.addEventListener('click', clearToDo);
 }
 Init();
 
