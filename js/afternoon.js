@@ -1,5 +1,3 @@
-import './morning-todolist.js';
-console.log(mornArray);
 /*sunset */
 const afternoonForm = document.querySelector('#afternoonForm');
 //ul
@@ -9,6 +7,21 @@ const afternoonToDo = document.querySelector('.todolist_afternoonToDo');
 let afterArray = [];
 const afternoonText = 'AFTERNOONLIST';
 
+function moveToMorning(event) {
+    if (mornArray.length < 7) {
+        const moveTo = event.target;
+        const li = moveTo.parentNode.parentNode;
+        console.log(li);
+        const moveText = li.firstChild.innerText;
+        paintMorning(moveText);
+        deleteToDoAfter(event);
+    } else {
+        alert('아침에 너무 몰아서 하지마~');
+    }
+
+}
+
+
 function finishToDo(event) {
     const btn = event.target.parentElement;
     const list = btn.parentNode;
@@ -16,7 +29,7 @@ function finishToDo(event) {
     span.classList.toggle('checkToDo');
 }
 
-function deleteToDo(event) {
+function deleteToDoAfter(event) {
     const btn = event.target;
     const list = btn.parentNode.parentNode;
     afternoonToDo.removeChild(list);
@@ -49,19 +62,20 @@ function paintafternoon(text) {
         const afternoonSpan = document.createElement('span');
         const delBtn = document.createElement('button');
         const finishBtn = document.createElement('button');
-        const moveToAfternoon = document.createElement('button');
+        const moveToMorn = document.createElement('button');
         const newId = afterArray.length + 1;
 
         delBtn.innerHTML = '❌';
         finishBtn.innerHTML = '⭕';
-        moveToAfternoon.innerHTML = '←';
+        moveToMorn.innerHTML = '←';
         afternoonSpan.innerText = text;
         afternoonLi.appendChild(afternoonSpan);
         mornBtns.appendChild(delBtn);
-        delBtn.addEventListener('click', deleteToDo);
+        delBtn.addEventListener('click', deleteToDoAfter);
         mornBtns.appendChild(finishBtn);
         finishBtn.addEventListener('click', finishToDo);
-        mornBtns.appendChild(moveToAfternoon);
+        mornBtns.appendChild(moveToMorn);
+        moveToMorn.addEventListener('click', moveToMorning)
         afternoonLi.appendChild(mornBtns);
         afternoonLi.id = newId;
         afternoonToDo.appendChild(afternoonLi);

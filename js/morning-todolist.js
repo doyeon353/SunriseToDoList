@@ -7,6 +7,20 @@ const sunriseImg = document.querySelector('#sunriseImg');
 let mornArray = [];
 const morningText = 'MORNINGLIST';
 
+function moveToAfter(event) {
+    if (afterArray.length < 7) {
+        const moveTo = event.target;
+        const li = moveTo.parentNode.parentNode;
+        const moveText = li.firstChild.innerText;
+        paintafternoon(moveText);
+        deleteToDoMorn(event);
+    } else {
+        alert('오후에 너무 몰아서 하지마~');
+    }
+
+}
+
+
 function finishToDo(event) {
     const btn = event.target.parentElement;
     const list = btn.parentNode;
@@ -14,7 +28,7 @@ function finishToDo(event) {
     span.classList.toggle('checkToDo');
 }
 
-function deleteToDo(event) {
+function deleteToDoMorn(event) {
     const btn = event.target;
     const list = btn.parentNode.parentNode;
     morningToDo.removeChild(list);
@@ -56,10 +70,11 @@ function paintMorning(text) {
         morningSpan.innerText = text;
         morningLi.appendChild(morningSpan);
         mornBtns.appendChild(delBtn);
-        delBtn.addEventListener('click', deleteToDo);
+        delBtn.addEventListener('click', deleteToDoMorn);
         mornBtns.appendChild(finishBtn);
         finishBtn.addEventListener('click', finishToDo);
         mornBtns.appendChild(moveToAfternoon);
+        moveToAfternoon.addEventListener('click', moveToAfter);
         morningLi.appendChild(mornBtns);
         morningLi.id = newId;
         morningToDo.appendChild(morningLi);
