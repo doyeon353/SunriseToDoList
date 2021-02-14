@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script defer src="js/clock.js"></script>
   <script defer src="js/morning-todolist.js"></script>
   <script defer src="js/afternoon.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -28,13 +29,19 @@
 
       <!--아침 할일 input-->
       <form class="inputContainer" id="morningForm">
-        <input type="text" id="morningToDo" />
+        <input type="text" id="morningToDo" placeholder="아침에는 무엇을 할거니?" />
 
       </form>
     </article>
-    <article class="clearBtn">
-      <i class="fas fa-trash-alt fa-2x" id="clearBtn_js"></i>
-    </article>
+
+    <div class="mid-block">
+      <div class="js-clock">
+        <h1>00:00</h1>
+      </div>
+      <article class="clearBtn">
+        <i class="fas fa-trash-alt fa-2x" id="clearBtn_js"></i>
+      </article>
+    </div>
     <article class="todolist">
       <div class="sunset">
         <span>Afternoon</span>
@@ -48,7 +55,7 @@
       </ul>
       <!--점심 할일 input-->
       <form class="inputContainer" id="afternoonForm">
-        <input type="text" id="afternoonToDo" />
+        <input type="text" id="afternoonToDo" placeholder="점심에는 무엇을 할거니?" />
 
       </form>
     </article>

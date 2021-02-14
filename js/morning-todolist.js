@@ -8,6 +8,7 @@ const clear = document.querySelector('#clearBtn_js');
 let mornArray = [];
 const morningText = 'MORNINGLIST';
 
+//모든 list를 지운다
 function clearToDo() {
     localStorage.clear();
     while (morningToDo.hasChildNodes()) {
@@ -18,6 +19,7 @@ function clearToDo() {
     }
 }
 
+//after로 list를 이동시킨다
 function moveToAfter(event) {
     if (afterArray.length < 7) {
         const moveTo = event.target;
@@ -31,7 +33,7 @@ function moveToAfter(event) {
 
 }
 
-
+//list를 finish했을떄 실행
 function finishToDo(event) {
     const btn = event.target.parentElement;
     const list = btn.parentNode;
@@ -39,6 +41,7 @@ function finishToDo(event) {
     span.classList.toggle('checkToDo');
 }
 
+//morning의 list를 지운다
 function deleteToDoMorn(event) {
     const btn = event.target;
     const list = btn.parentNode.parentNode;
@@ -50,10 +53,13 @@ function deleteToDoMorn(event) {
     SaveMorning();
 }
 
+
+//morning의 list를 localstorage에 저장
 function SaveMorning(text) {
     localStorage.setItem(morningText, JSON.stringify(mornArray));
 }
 
+//새로고침시 화면에 Morning의 list를 출력
 function loadMorning() {
     const loadedMorning = localStorage.getItem(morningText);
     if (loadedMorning !== null) {
@@ -64,7 +70,7 @@ function loadMorning() {
     }
 }
 
-
+//화면에 list를 출력
 function paintMorning(text) {
     if (mornArray.length < 7) {
         const morningLi = document.createElement('li');
@@ -102,7 +108,7 @@ function paintMorning(text) {
     }
 }
 
-
+//form의 eventHandler
 function MorningHandleSubmit(event) {
     event.preventDefault();
     const toDo = document.querySelector('#morningToDo');

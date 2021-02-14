@@ -7,6 +7,8 @@ const afternoonToDo = document.querySelector('.todolist_afternoonToDo');
 let afterArray = [];
 const afternoonText = 'AFTERNOONLIST';
 
+
+//morning로 list를 이동시킨다
 function moveToMorning(event) {
     if (mornArray.length < 7) {
         const moveTo = event.target;
@@ -21,7 +23,7 @@ function moveToMorning(event) {
 
 }
 
-
+//list를 finish시킨다.
 function finishToDo(event) {
     const btn = event.target.parentElement;
     const list = btn.parentNode;
@@ -29,6 +31,8 @@ function finishToDo(event) {
     span.classList.toggle('checkToDo');
 }
 
+
+//after의 list를 삭제
 function deleteToDoAfter(event) {
     const btn = event.target;
     const list = btn.parentNode.parentNode;
@@ -40,10 +44,12 @@ function deleteToDoAfter(event) {
     Saveafternoon();
 }
 
+
+//after를 localstorage에 저장
 function Saveafternoon(text) {
     localStorage.setItem(afternoonText, JSON.stringify(afterArray));
 }
-
+//새로고침시 list를 화면에 출력(afternoon)
 function loadafternoon() {
     const loadedafternoon = localStorage.getItem(afternoonText);
     if (loadedafternoon !== null) {
@@ -54,7 +60,7 @@ function loadafternoon() {
     }
 }
 
-
+//화면에 출력
 function paintafternoon(text) {
     if (afterArray.length < 7) {
         const afternoonLi = document.createElement('li');
@@ -92,7 +98,7 @@ function paintafternoon(text) {
     }
 }
 
-
+//afternoon의 form handler
 function afternoonHandleSubmit(event) {
     event.preventDefault();
     const toDo = document.querySelector('#afternoonToDo');

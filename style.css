@@ -12,8 +12,17 @@ section {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  
 }
-
+.sunrise > span,
+.sunset > span{
+  font-size: 22px
+}
+.sunrise{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .sunrise,
 .sunset {
   margin-top: 14px;
@@ -34,6 +43,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 50px 200px 0px 200px;
+  
 }
 
 .todolist_morningToDo,
@@ -71,6 +82,7 @@ input {
   border-radius: 10px;
   border: none;
   outline: none;
+  opacity: 0.8;
 }
 
 .checkBtn:hover {
@@ -90,4 +102,44 @@ input {
 }
 .clearBtn:hover{
 cursor: pointer;
+color: #eff3f4;
+transition: 0.2s ease-in;
+}
+.mid-block{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.js-clock > h1{
+  font-size: 5rem;
+  color: aliceblue;
+  text-shadow: 2px 2px black;
+}
+
+@media screen and (max-width : 1230px){
+.todolist{
+  margin: 0;
+  margin-top: 50px;
+}
+}
+@media screen and (min-width: 500px) and (max-width :850px){
+ section{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   padding: 0px 0px 50px 0px;
+   position: relative;
+ }
+ .clearBtn{
+   position: absolute;
+   position: fixed;
+   right: 2em;
+   top: 6em;
+  font-size: 1.5em;
+ }
+
+
 }
